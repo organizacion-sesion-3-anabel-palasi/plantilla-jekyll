@@ -4,4 +4,19 @@ title: Página de galería de imágenes
 permalink: /galeria
 ---
 
-<p>Página de galería de imágenes<p>
+<h1 align="center">Página de galería de imágenes</h1>
+	<table border="1">
+		<th> Nombre </th>
+			<th> Imagen 
+		</th>
+	{% for image in site.static_files %}
+
+       {% if image.path contains 'images/' %}
+      		 <tr> <td> {{image.name}}</td><td>
+           <img src="{{ site.baseurl }}{{ image.path }}" alt="{{image.name}}" />
+             </td>
+		</tr>
+       {% endif %}
+ 
+{% endfor %}
+</table>
